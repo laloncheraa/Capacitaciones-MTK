@@ -1,1 +1,374 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DataTek | Monitorea el progreso, en todo momento.</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="app">
+    <main class="login-page" id="loginScreen">
+      <section class="login-card" aria-label="Inicio de sesión">
+        <div class="brand">
+          <img class="brand-mark" src="./assets/logo-mark.png" alt="" aria-hidden="true" />
+          <div class="brand-copy">
+            <h1>DATATEK</h1>
+            <p>Monitorea el progreso, en todo momento.</p>
+          </div>
+        </div>
 
+        <form class="login-form" id="loginForm">
+          <label>
+            <span>Correo</span>
+            <span class="field">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3.75 5.75h16.5v12.5H3.75z" />
+                <path d="m4.25 6.25 7.75 6 7.75-6" />
+              </svg>
+              <input id="emailInput" type="email" placeholder="example@mecanicatek.com" autocomplete="email" />
+            </span>
+          </label>
+
+          <label>
+            <span>Contraseña</span>
+            <span class="field">
+              <input id="passwordInput" type="password" placeholder="••••••••" autocomplete="current-password" />
+            </span>
+          </label>
+
+          <button type="submit">Iniciar sesión</button>
+          <p class="login-note" id="loginMessage"></p>
+        </form>
+
+        <p class="copyright">© 2026 DataTek</p>
+      </section>
+
+      <div class="character" aria-hidden="true"></div>
+    </main>
+
+    <main class="home-page hidden" id="homeScreen">
+      <header class="home-header">
+        <div class="home-brand">
+          <img class="home-brand-mark" src="./assets/logo-mark.png" alt="" aria-hidden="true" />
+          <div class="home-brand-copy">
+            <strong>DATA<br />TEK</strong>
+          </div>
+        </div>
+
+        <div class="home-user-menu">
+          <button class="home-user-button" id="homeUserButton" type="button" aria-expanded="false">
+            <span class="home-user-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="4.2"></circle>
+                <path d="M4.8 19.2c1.9-3.2 4.5-4.8 7.2-4.8s5.3 1.6 7.2 4.8"></path>
+              </svg>
+            </span>
+            <span id="homeWelcomeText">Bienvenido, Usuario</span>
+            <span class="home-user-caret" aria-hidden="true">⌄</span>
+          </button>
+
+          <div class="home-user-dropdown hidden" id="homeUserDropdown">
+            <button class="home-user-dropdown-item" id="homeLogoutButton" type="button">Cerrar sesión</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="home-hero">
+        <div class="home-copy">
+          <h2>Bienvenido.</h2>
+          <p>Todo está listo para comenzar.</p>
+
+          <div class="home-actions">
+            <button class="home-action-card" type="button" data-target-view="dashboard">
+              <span class="home-action-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3.5" y="3.5" width="17" height="17" rx="2"></rect>
+                  <path d="M12 3.5v17M3.5 12h17"></path>
+                </svg>
+              </span>
+              <span class="home-action-label">Dashboard</span>
+              <span class="home-action-arrow" aria-hidden="true">›</span>
+            </button>
+
+            <button class="home-action-card" type="button" data-target-view="records">
+              <span class="home-action-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="11" cy="11" r="6.5"></circle>
+                  <path d="M16 16l4.2 4.2"></path>
+                </svg>
+              </span>
+              <span class="home-action-label">Consulta Rapida</span>
+              <span class="home-action-arrow" aria-hidden="true">›</span>
+            </button>
+
+            <button class="home-action-card" type="button" data-target-view="downloads">
+              <span class="home-action-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 4.5v10.2"></path>
+                  <path d="M8 11.5 12 15.5l4-4"></path>
+                  <path d="M4.5 19.5h15"></path>
+                </svg>
+              </span>
+              <span class="home-action-label">Descarga de datos</span>
+              <span class="home-action-arrow" aria-hidden="true">›</span>
+            </button>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <main class="app-shell hidden" id="appShell">
+      <header class="app-header">
+        <div class="app-header-brand">
+          <img class="app-header-logo" src="./assets/logo-mark.png" alt="" aria-hidden="true" />
+          <strong>DataTek</strong>
+        </div>
+
+        <div class="home-user-menu">
+          <button class="home-user-button" id="appUserButton" type="button" aria-expanded="false">
+            <span class="home-user-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="4.2"></circle>
+                <path d="M4.8 19.2c1.9-3.2 4.5-4.8 7.2-4.8s5.3 1.6 7.2 4.8"></path>
+              </svg>
+            </span>
+            <span id="appWelcomeText">Bienvenido, Usuario</span>
+            <span class="home-user-caret" aria-hidden="true">⌄</span>
+          </button>
+
+          <div class="home-user-dropdown hidden" id="appUserDropdown">
+            <button class="home-user-dropdown-item" id="appLogoutButton" type="button">Cerrar sesión</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="app-page" data-page="dashboard">
+        <div class="dashboard-layout">
+          <aside class="dashboard-rail">
+            <nav class="dashboard-rail-nav">
+              <button class="rail-link" data-view="home">Inicio</button>
+              <button class="rail-link" data-view="records">Consulta Rápida</button>
+              <button class="rail-link" data-view="downloads">Descarga de Datos</button>
+            </nav>
+
+            <div class="dashboard-rail-divider"></div>
+
+            <div class="dashboard-filter-box">
+              <p class="rail-title">Filtros</p>
+
+              <label>
+                Instructor
+                <select id="instructorFilter"></select>
+              </label>
+
+              <label>
+                Categoría
+                <select id="examFilter"></select>
+              </label>
+
+              <label>
+                Región
+                <select id="regionFilter"></select>
+              </label>
+
+              <label>
+                Status
+                <select id="statusFilter"></select>
+              </label>
+
+              <label>
+                No. de socio
+                <input id="searchFilter" type="search" placeholder="Buscar N. de pers." />
+              </label>
+
+              <button class="rail-clear-button" id="clearFiltersButton" type="button">Limpiar filtros</button>
+            </div>
+          </aside>
+
+          <section class="dashboard-main">
+            <header class="dashboard-topbar">
+              <span class="status-pill" id="dataModePill">Modo demo</span>
+              <button class="secondary-button" id="refreshButton">Recargar datos</button>
+            </header>
+
+            <div class="cards-grid dashboard-stats">
+              <article class="metric-card metric-card--feature">
+                <span>Técnicos Actuales</span>
+                <strong id="totalPeople">0</strong>
+              </article>
+              <article class="metric-card metric-card--feature">
+                <span>Técnicos Capacitados</span>
+                <strong id="totalRecords">0</strong>
+              </article>
+              <article class="metric-card metric-card--feature">
+                <span>Avance de Plan</span>
+                <strong id="progressPercent">0%</strong>
+              </article>
+              <article class="metric-card metric-card--feature">
+                <span>Horas Capacitados</span>
+                <strong id="totalHours">0</strong>
+              </article>
+            </div>
+
+            <section class="view-panel" data-panel="dashboard">
+              <div class="content-grid">
+                <article class="panel">
+                  <div class="panel-header">
+                    <h3>Total de capacitaciones por mes</h3>
+                  </div>
+                  <div class="chart-surface" id="trainingsByMonthChart"></div>
+                </article>
+
+                <article class="panel">
+                  <div class="panel-header">
+                    <h3>Total de horas capacitadas por mes</h3>
+                  </div>
+                  <div class="chart-surface" id="hoursByMonthChart"></div>
+                </article>
+
+                <article class="panel">
+                  <div class="panel-header">
+                    <h3>Acumulado de capacitaciones por instructor</h3>
+                  </div>
+                  <div class="chart-surface" id="instructorAccumChart"></div>
+                </article>
+
+                <article class="panel">
+                  <div class="panel-header">
+                    <h3>Distribución por status</h3>
+                  </div>
+                  <div class="chart-surface chart-surface--donut" id="statusDonutChart"></div>
+                  <div class="panel-total">
+                    <span>Total de puntos</span>
+                    <strong id="totalPoints">0</strong>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </section>
+        </div>
+      </section>
+
+      <section class="app-page hidden" data-page="records">
+        <section class="workspace">
+          <header class="workspace-header">
+            <div>
+              <p class="eyebrow">DataTek</p>
+              <h2 id="pageTitle">Consulta</h2>
+            </div>
+          </header>
+          <div class="cards-grid">
+            <article class="metric-card">
+              <span>No. de socio</span>
+              <input class="inline-filter-input" id="memberSearchFilter" type="search" placeholder="Buscar N. de pers." />
+            </article>
+            <article class="metric-card">
+              <span>Resultados</span>
+              <strong id="resultsCount">0 registros</strong>
+            </article>
+            <article class="metric-card">
+              <span>Horas</span>
+              <strong id="recordsHours">0</strong>
+            </article>
+          </div>
+          <section class="subpage-filters">
+            <label>
+              Región
+              <select id="recordsRegionFilter"></select>
+            </label>
+            <label>
+              Status
+              <select id="recordsStatusFilter"></select>
+            </label>
+            <label>
+              Instructor
+              <select id="recordsInstructorFilter"></select>
+            </label>
+            <label>
+              Tipo de examen
+              <select id="recordsExamFilter"></select>
+            </label>
+          </section>
+          <article class="panel">
+            <div class="panel-header">
+              <h3>Consulta rápida</h3>
+              <button class="secondary-button back-home-button" data-view="home">Volver a inicio</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead id="recordsHead"></thead>
+                <tbody id="recordsBody"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <section class="app-page hidden" data-page="downloads">
+        <section class="workspace">
+          <section class="subpage-filters">
+            <label>
+              Región
+              <select id="downloadsRegionFilter"></select>
+            </label>
+            <label>
+              Status
+              <select id="downloadsStatusFilter"></select>
+            </label>
+            <label>
+              Instructor
+              <select id="downloadsInstructorFilter"></select>
+            </label>
+            <label>
+              Tipo de examen
+              <select id="downloadsExamFilter"></select>
+            </label>
+            <label>
+              No. de socio
+              <input class="inline-filter-input" id="downloadsMemberSearchFilter" type="search" placeholder="Buscar N. de pers." />
+            </label>
+          </section>
+          <article class="panel">
+            <div class="panel-header">
+              <h3>Descarga de información</h3>
+              <button class="secondary-button back-home-button" data-view="home">Volver a inicio</button>
+            </div>
+            <div class="download-box">
+              <p id="downloadSummary"></p>
+              <button class="primary-button" id="downloadCsvButton">Descargar CSV filtrado</button>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <section class="app-page hidden" data-page="config">
+        <section class="workspace">
+          <article class="panel">
+            <div class="panel-header">
+              <h3>Configuración para enlazar en la computadora de trabajo</h3>
+              <button class="secondary-button back-home-button" data-view="home">Volver a inicio</button>
+            </div>
+            <div class="config-list">
+              <p><strong>Archivo Excel:</strong> <span id="configExcelFile"></span></p>
+              <p><strong>Hoja:</strong> <span id="configWorksheet"></span></p>
+              <p><strong>Microsoft List:</strong> <span id="configListName"></span></p>
+              <p><strong>Sitio:</strong> <span id="configSite"></span></p>
+              <p><strong>Modo actual:</strong> <span id="configMode"></span></p>
+            </div>
+            <p class="config-note">
+              Esta maqueta ya tiene listas las reglas de permisos por región. Después solo cambias las referencias
+              del archivo y la lista en <code>config.js</code> o en el backend real.
+            </p>
+          </article>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="./config.js"></script>
+  <script src="./mock-data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
